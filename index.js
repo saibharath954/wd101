@@ -33,6 +33,8 @@ const saveUserForm = (event) => {
 
     localStorage.setItem("user-entries", JSON.stringify(userEntries));
     displayEntries();
+
+    userForm.reset();
 };
 
 const retrieveEntries = () => {
