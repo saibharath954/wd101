@@ -13,7 +13,7 @@ setDOB();
 
 let userForm = document.getElementById("form");
 
-let userEntries = [];
+userForm.addEventListener("submit", saveUserForm);
 
 const saveUserForm = (event) => {
     event.preventDefault();
@@ -32,12 +32,12 @@ const saveUserForm = (event) => {
         acceptTermsAndConditions
     };
 
+    let userEntries = retrieveEntries();
     userEntries.push(entry);
 
     localStorage.setItem("user-entries", JSON.stringify(userEntries));
     displayEntries();
 };
-userForm.addEventListener("submit", saveUserForm);
 
 const retrieveEntries = () => {
     let entries = localStorage.getItem("user-entries");
@@ -62,7 +62,7 @@ const displayEntries = () => {
         const row = '<tr>'+nameCell+emailCell+passwordCell+dobCell+acceptTermsCell+'</tr>'
 
         return row;
-    }).join("\n");
+    }).join("");
 
     const table = '<table><thead class="bg-blue-600 text-white"><tr><th class="px-4 py-2 border border-black">Name</th><th class="px-4 py-2 border border-black">Email</th><th class="px-4 py-2 border border-black">Password</th><th class="px-4 py-2 border border-black">Dob</th><th class="px-4 py-2 border border-black">Accepted terms?</th></tr></thead><tbody><tr>'+tableEntries+'</tr></tbody></table>';
 
