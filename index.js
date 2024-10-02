@@ -11,10 +11,6 @@ const setDOB = () => {
 }
 setDOB();
 
-let userForm = document.getElementById("form");
-
-userForm.addEventListener("submit", saveUserForm);
-
 const saveUserForm = (event) => {
     event.preventDefault();
 
@@ -64,9 +60,12 @@ const displayEntries = () => {
         return row;
     }).join("");
 
-    const table = '<table><thead class="bg-blue-600 text-white"><tr><th class="px-4 py-2 border border-black">Name</th><th class="px-4 py-2 border border-black">Email</th><th class="px-4 py-2 border border-black">Password</th><th class="px-4 py-2 border border-black">Dob</th><th class="px-4 py-2 border border-black">Accepted terms?</th></tr></thead><tbody><tr>'+tableEntries+'</tr></tbody></table>';
+    const table = '<table><thead class="bg-blue-600 text-white"><tr><th class="px-4 py-2 border border-black">Name</th><th class="px-4 py-2 border border-black">Email</th><th class="px-4 py-2 border border-black">Password</th><th class="px-4 py-2 border border-black">Dob</th><th class="px-4 py-2 border border-black">Accepted terms?</th></tr></thead><tbody>'+tableEntries+'</tbody></table>';
 
     document.getElementById("table").innerHTML = table;
 };
+
+let userForm = document.getElementById("form");
+userForm.addEventListener("submit", saveUserForm);
 
 displayEntries();
